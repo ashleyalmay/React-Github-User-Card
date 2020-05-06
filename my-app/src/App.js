@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
-import info from "./info";
+import Info from "./info";
 import "./index.css";
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state={
       myInfo:[] ,
       followersInfo: []
@@ -13,42 +13,31 @@ export default class App extends React.Component {
   }  
 
   componentDidMount() {
-    this.getMe();
-    this.getFollowers();
-  }
-  // this is for my github
-  getMe = () => {
+     // this is for my github
     axios
     .get('https://api.github.com/users/ashleyalmay')
     .then(response => {
-      
-      this.setState({
-        myInfo: response.data
-      })
+      this.setState({myInfo: response.data})
+      console.log(response)
     })
-    .catch(err => console.log(err));
-  };
- 
-//this is for my followers
-getFollowers = () => {
+    //this is for my followers
   axios
   .get('https://api.github.com/users/ashleyalmay/followers')
   .then(response => {
-    this.setState({
-      followersInfo: response.data
-    })
+      this.setState({followersInfo: response.data})
+      console.log(response)
   })
   .catch(err => console.log(err));
-};
+  }
 
 // this is where its displayed
-
 render () {
-  console.log (this.props);
   return (
-    <div className="App">
-          <info/>
-        
+    <div className="cards">
+      <div className="card">
+          <Info></Info>
+          
+          </div>
     </div>
   );
 } 

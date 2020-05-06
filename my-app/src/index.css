@@ -135,6 +135,6 @@ body {
   font-style: italic;
   margin: 3px 0 10px;
 }
-
-
-
+h1,h2{
+  font-size: 1.8rem;
+}

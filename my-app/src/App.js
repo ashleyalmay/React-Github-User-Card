@@ -35,8 +35,12 @@ render () {
   return (
     <div className="cards">
       <div className="card">
-          <Info></Info>
+          <Info myinfo = {this.state.myInfo}/>
+           {this.state.followersInfo.map(follower =>(<Info myinfo = {follower}/>))}
           
+          <div className="card-info">
+          
+          </div>
           </div>
     </div>
   );
